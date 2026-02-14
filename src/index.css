@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 195 60% 7%;
+    --background-end: 207 40% 12%;
+    --foreground: 200 15% 92%;
+
+    --card: 197 40% 11%;
+    --card-foreground: 200 15% 92%;
+
+    --popover: 197 40% 11%;
+    --popover-foreground: 200 15% 92%;
+
+    --primary: 200 50% 60%;
+    --primary-foreground: 195 60% 7%;
+
+    --secondary: 197 30% 16%;
+    --secondary-foreground: 200 15% 80%;
+
+    --muted: 197 25% 18%;
+    --muted-foreground: 200 15% 50%;
+
+    --accent: 200 50% 60%;
+    --accent-foreground: 195 60% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 197 25% 20%;
+    --input: 197 25% 20%;
+    --ring: 200 50% 60%;
+
+    --radius: 0.25rem;
+
+    --silver-start: 200 40% 70%;
+    --silver-mid: 200 30% 50%;
+    --silver-end: 200 35% 35%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-silver {
+    background: linear-gradient(
+      135deg,
+      hsl(200 40% 70%) 0%,
+      hsl(200 30% 50%) 50%,
+      hsl(200 35% 35%) 100%
+    );
+  }
+
+  .gradient-silver-text {
+    background: linear-gradient(
+      135deg,
+      hsl(200 40% 80%) 0%,
+      hsl(200 30% 60%) 40%,
+      hsl(0 0% 100%) 60%,
+      hsl(200 40% 70%) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-silver-border {
+    border-image: linear-gradient(
+      135deg,
+      hsl(200 35% 35%) 0%,
+      hsl(200 30% 55%) 50%,
+      hsl(200 35% 30%) 100%
+    ) 1;
+  }
+
+  .price-glow {
+    background: linear-gradient(
+      135deg,
+      hsl(200 50% 75%) 0%,
+      hsl(0 0% 100%) 50%,
+      hsl(200 50% 75%) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px hsl(200 60% 50% / 0.4));
+  }
+
+  .card-imperial {
+    @apply relative overflow-hidden;
+    border: 1px solid hsl(197 25% 22%);
+    box-shadow:
+      0 0 0 1px hsl(197 25% 16%),
+      0 4px 24px -4px hsl(195 60% 4% / 0.6),
+      inset 0 1px 0 hsl(200 30% 25%);
+  }
+
+  .card-reflection::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%
+    );
+    transform: skewX(-25deg);
+    animation: shine 6s infinite;
+    pointer-events: none;
+  }
+
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    20% {
+      left: 200%;
+    }
+    100% {
+      left: 200%;
+    }
+  }
+
+  .btn-silver {
+    background: linear-gradient(
+      135deg,
+      hsl(200 40% 65%) 0%,
+      hsl(200 30% 45%) 50%,
+      hsl(200 35% 35%) 100%
+    );
+    color: hsl(195 60% 7%);
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+  .btn-silver:hover {
+    opacity: 0.9;
+  }
+}
