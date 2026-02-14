@@ -43,12 +43,6 @@ desktop.ini
 coverage
 .nyc_output
 
-# Cursor / AI / Agents (STRICT EXCLUSION)
-.cursor/
-.gpt/
-.lovable/
-lovable.config.ts
-lovable-tagger.ts
-agents/
+
 .gemini/
 .antigravity/
